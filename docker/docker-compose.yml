@@ -1,0 +1,15 @@
+version: "2"
+sevices:
+  node:
+    image: "node:9.5.0"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+      - NPM_CONFIG_PREFIX=/home/node/.npm-global
+      - PATH=$PATH:/home/node/.npm-global/bin
+    volumes:
+      - ../:/home/node/app
+    expose:
+      - "3000"
+    command: "npm start
