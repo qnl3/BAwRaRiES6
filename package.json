@@ -17,6 +17,7 @@
     "toastr": "^2.1.4"
   },
   "devDependencies": {
+    "ava": "^0.25.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -41,7 +42,6 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "jsdom": "^11.6.2",
-    "mocha": "^5.0.0",
     "nock": "^9.1.6",
     "npm-run-all": "^4.1.2",
     "open": "0.0.5",
@@ -53,15 +53,14 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^2.0.5",
-    "webpack-hot-middleware": "^2.21.0",
-    "yarn": "^1.3.2"
+    "webpack-hot-middleware": "^2.21.0"
   },
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel server:start lint:watch test:watch ",
     "server:start": "babel-node server/srcServer.js",
+    "test": "ava",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
-    "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
     "lint:watch": "npm run lint -- --watch",
     "test:watch": "npm run test -- --watch"
   },
@@ -74,5 +73,10 @@
   "bugs": {
     "url": "https://github.com/qnl3/BAwRaRiES6/issues"
   },
-  "homepage": "https://github.com/qnl3/BAwRaRiES6#readme"
+  "homepage": "https://github.com/qnl3/BAwRaRiES6#readme",
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  }
 }
