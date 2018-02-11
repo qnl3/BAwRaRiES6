@@ -1,1 +1,2 @@
-console.log("index.js built");
+/* eslint-disable no-console */
+console.log("index.js bundled");
